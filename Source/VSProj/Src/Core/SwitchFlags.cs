@@ -13,12 +13,20 @@ namespace IFix
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Method | AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Field)]
     public class InterpretAttribute : Attribute
     {
+        public InterpretAttribute(string args)
+        {
+
+        }
     }
 
     //直接在要做成补丁的方法上打标签
     [AttributeUsage(AttributeTargets.Method)]
     public class PatchAttribute : Attribute
     {
+        public PatchAttribute(string args)
+        {
+
+        }
     }
 
     //可以手动指定要生成delegate（主要用于闭包）、interface（比如迭代器语法糖）的桥接
