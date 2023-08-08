@@ -13,9 +13,11 @@ namespace IFix
     [AttributeUsage(AttributeTargets.Method)]
     public class InterpretAttribute : Attribute
     {
+        public string args;
+
         public InterpretAttribute(string args)
         {
-
+            this.args = args;
         }
     }
 
@@ -23,9 +25,11 @@ namespace IFix
     [AttributeUsage(AttributeTargets.Method)]
     public class PatchAttribute : Attribute
     {
+        public string args;
+
         public PatchAttribute(string args)
         {
-
+            this.args = args;
         }
     }
 
