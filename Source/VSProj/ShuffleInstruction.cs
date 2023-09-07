@@ -83,9 +83,12 @@ namespace IFix
                 //生成随机的magic code
                 Random r = string.IsNullOrEmpty(ConfuseKey) ?
                             new Random(DateTime.Now.Millisecond) : new Random(ConfuseKey.GetHashCode());
-                ulong magic = (uint)r.Next();
-                magic = (magic << 32);
-                magic = magic | ((uint)r.Next());
+                //ulong magic = (uint)r.Next();
+                //magic = (magic << 32);
+                //magic = magic | ((uint)r.Next());
+        
+                //为了规避线上强更需求，这里不硬性保证lib和runtime的一致性 wx 2023年9月7日15:25:34
+                ulong magic = 401935419061154612;
 
                 var tail = (match.Groups["tail"].Captures[0] as Capture).Value;
                 output.Write(Regex.Replace(tail,
