@@ -478,7 +478,7 @@ namespace IFix
 
                     var methods = new List<MethodDefinition>{property.GetMethod, property.SetMethod};
                     
-                    var defination = newAssembly.MainModule.GetType(property.DeclaringType.FullName);
+                    //var defination = newAssembly.MainModule.GetType(property.DeclaringType.FullName);
                     foreach (var field in ( from method in methods
                         where method != null && method.IsSpecialName && method.Body != null 
                             && method.Body.Instructions != null

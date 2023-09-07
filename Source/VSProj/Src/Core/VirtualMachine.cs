@@ -182,7 +182,7 @@ namespace IFix.Core
 
     unsafe public class VirtualMachine
     {
-        Instruction tellUnity4IncludeInstructionFisrt;
+        //Instruction tellUnity4IncludeInstructionFisrt;
 
         public const int MAX_EVALUATION_STACK_SIZE = 1024 * 10;
 

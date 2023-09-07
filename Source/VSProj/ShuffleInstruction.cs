@@ -81,8 +81,8 @@ namespace IFix
                 }
 
                 //生成随机的magic code
-                Random r = string.IsNullOrEmpty(ConfuseKey) ?
-                            new Random(DateTime.Now.Millisecond) : new Random(ConfuseKey.GetHashCode());
+                //Random r = string.IsNullOrEmpty(ConfuseKey) ?
+                //            new Random(DateTime.Now.Millisecond) : new Random(ConfuseKey.GetHashCode());
                 //ulong magic = (uint)r.Next();
                 //magic = (magic << 32);
                 //magic = magic | ((uint)r.Next());
