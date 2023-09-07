@@ -161,12 +161,12 @@ namespace IFix
         }
 
         //再补丁新增一个对原生方法的引用
-        int addExternType(TypeReference type, TypeReference contextType = null)
+        int addExternType(TypeReference type, TypeReference contextType = null, FieldReference field = null)
         {
             if (type.IsRequiredModifier) return addExternType((type as RequiredModifierType).ElementType, contextType);
             if (type.IsGenericParameter || type.HasGenericArgumentFromMethod())
             {
-                throw new InvalidProgramException("try to use a generic type definition: " + type);
+                throw new InvalidProgramException($"try to use a generic type definition: {type}, DeclaringType:{field.DeclaringType}");
             }
             if (externTypeToId.ContainsKey(type))
             {
@@ -3852,12 +3852,13 @@ namespace IFix
                 // add field type
                 for (int i = 0; i < fields.Count; i++)
                 {
-                    var fieldType = fields[i].FieldType;
+                    var field = fields[i];
+                    var fieldType = field.FieldType;
                     if (isCompilerGenerated(fieldType) || isNewClass(fieldType as TypeDefinition))
                     {
                         fieldType = objType;
                     }
-                    addExternType(fieldType);
+                    addExternType(fieldType, null, field);
                 }
 
                 //---------------extern type---------------
